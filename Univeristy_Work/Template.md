@@ -4,7 +4,6 @@
 * **Core Concept:** A high-level overview of the topic in 1-2 sentences.
 
 
-
 > **Takeaways:** Details...
 
 
