@@ -10,8 +10,6 @@
 > * Performance degrades to ($ O(n) $) if the tree becomes skewed.
 > * Inorder traversal of a BST produces sorted output.
 
----
-
 ## 📖 Definition
 
 * **Binary Search Tree (BST):** A binary tree in which for every node:
@@ -30,8 +28,6 @@
 
 * The BST ordering property must hold for every node.
 * No duplicate elements (in this implementation).
-
----
 
 ## 📊 Complexity Analysis
 
@@ -53,7 +49,6 @@
 * **Average-Case ($\Theta(\log n)$):**
   For randomly distributed insertions.
 
----
 
 ## ❓ Why we use it
 
@@ -62,7 +57,6 @@
 * Supports hierarchical representation.
 * Foundation for advanced trees (AVL, Red-Black, B-Trees).
 
----
 
 ## ⚙️ How it works
 
@@ -100,29 +94,21 @@ There are **three cases**:
 
 For balanced BST:
 
-$$
-T(n) = T(n/2) + c
-$$
+$$T(n) = T(n/2) + c$$
 
 Solving:
 
-$$
-T(n) = O(\log n)
-$$
+$$T(n) = O(\log n)$$
 
 For skewed BST:
 
-$$
-T(n) = T(n-1) + c
-$$
+$$T(n) = T(n-1) + c$$
 
 Solving:
 
-$$
-T(n) = O(n)
-$$
+$$T(n) = O(n)$$
 
----
+
 
 ## 💻 Usage / Program Example (C)
 
@@ -243,7 +229,6 @@ NodePtr deleteNode(NodePtr root, int key) {
 }
 ```
 
----
 
 ## References
 
