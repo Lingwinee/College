@@ -3,9 +3,7 @@
 ## 📋 Summary
 * **Core Concept:** A high-level overview of the topic in 1-2 sentences.
 
-
 > **Takeaways:** Details...
-
 
 
 ## 📖 Definition
@@ -14,6 +12,7 @@
 * **[Term 2]:** Provide a formal definition here.
 * **Requirements:** * Requirement A
     * Requirement B
+
 
 ## 📊 Complexity Analysis
 
@@ -53,10 +52,8 @@ def find_element(arr, target):
 
 # Complexity: O(n)
 
-
 ```
 ## References
-
 
 * [Link Name](https://your-link-here.com) — Brief description of the source.
 * [Book Title] — Author Name, Chapter/Page.
