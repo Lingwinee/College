@@ -1,0 +1,261 @@
+<aside>
+
+# Summary
+
+</aside>
+
+- The Euclidean Algorithm is an efficient method for computing the **Greatest Common Divisor (GCD)** of two integers. It is a fundamental tool in number theory and cryptography.
+- Prime factorization is the process of breaking down a composite number into a product of prime numbers.
+
+---
+
+<aside>
+
+# Definition GCD (Euclidean)
+
+</aside>
+
+The GCD of two integers is the largest positive integer that divides both numbers without leaving a remainder. The Euclidean algorithm operates on the principle that the GCD of two numbers does not change if the larger number is replaced by its difference with the smaller number.
+
+---
+
+<aside>
+
+## Complexity Analysis
+
+</aside>
+
+- **Time Complexity:** $O(\log(\min(a, b)))$. The number of steps grows logarithmically with the size of the input.
+- **Space Complexity:** $O(1)$ for the iterative version; $O(\log(\min(a, b)))$ for the recursive version due to the call stack.
+
+---
+
+<aside>
+
+## Why do we Use it
+
+</aside>
+
+It is significantly faster than prime factorization for large numbers. It is essential for simplifying fractions and is a core component of the RSA encryption algorithm used in cybersecurity.
+
+---
+
+<aside>
+
+## How it Works
+
+</aside>
+
+The algorithm uses the remainder property: $\text{GCD}(a, b) = \text{GCD}(b, a \pmod b)$. You repeatedly replace the larger number with the remainder of the division until the remainder reaches zero. The last non-zero remainder is the GCD.
+
+---
+
+<aside>
+
+## Step-by-step Implementation
+
+</aside>
+
+1. Start with two numbers, $a$ and $b$.
+2. Divide $a$ by $b$ and find the remainder $r$.
+3. Replace $a$ with $b$ and $b$ with $r$.
+4. Repeat until $b$ equals $0$.
+5. The final value of $a$ is the GCD.
+
+---
+
+<aside>
+
+# Definition Prime Factorization
+
+</aside>
+
+Every integer greater than 1 is either a prime number or can be represented as a unique product of prime numbers. This is known as the **Fundamental Theorem of Arithmetic**.
+
+---
+
+<aside>
+
+## Complexity Analysis
+
+</aside>
+
+- **Time Complexity:** $O(\sqrt{n})$ For basic trial division. For very large numbers, this is a computationally "hard" problem, which forms the basis of many security protocols.
+- **Space Complexity:** $O(\log n)$ to store the prime factors.
+
+---
+
+<aside>
+
+## Why do we Use it
+
+</aside>
+
+It is used to find the Least Common Multiple (LCM), simplify square roots, and analyze the properties of numbers in discrete mathematics.
+
+---
+
+<aside>
+
+## How it Works
+
+</aside>
+
+You divide the number by the smallest possible prime (starting with 2) and continue dividing the quotient by primes until the quotient becomes 1.
+
+---
+
+<aside>
+
+# Program Example
+
+</aside>
+
+## Euclidean Algorithm (GCD)
+
+1. **Iterative:** Use a `while` loop to replace $a$ with $b$ and $b$ with the remainder of $a/b$ until $b$ reaches zero.
+2. **Recursive:** Call the function repeatedly, passing $b$ as the first argument and $a \pmod b$ as the second, until the base case $b = 0$ is reached.
+
+```python
+# PYTHON
+def gcd_iterative(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def gcd_recursive(a, b):
+    if b == 0:
+        return a
+    return gcd_recursive(b, a % b)
+
+# Output for (48, 18): 6
+```
+
+```c
+// C
+#include <stdio.h>
+
+// Iterative approach
+int gcd_iterative(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+// Recursive approach
+int gcd_recursive(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return gcd_recursive(b, a % b);
+}
+
+int main() {
+    int num1 = 48, num2 = 18;
+    printf("Iterative GCD: %d\n", gcd_iterative(num1, num2));
+    printf("Recursive GCD: %d\n", gcd_recursive(num1, num2));
+    return 0;
+}
+```
+
+> Explanation: These functions implement the property that $\text{GCD}(a, b) = \text{GCD}(b, a \pmod b)$. The iteration or recursion continues until the remainder is zero, leaving the GCD as the final non-zero value.
+> 
+
+---
+
+## Prime Factorization
+
+1. **Iterative:** Start with the smallest prime (2). While $n$ is divisible by the divisor, record it and divide $n$. Increment the divisor and repeat until $n$ equals 1.
+2. **Recursive:** Check for the smallest divisor $i$. If found, record $i$ and call the function again with $n/i$. The base case is when $n$ is reduced to 1.
+
+```python
+# PYTHON
+def prime_factors_iterative(n):
+    factors = []
+    divisor = 2
+    while n > 1:
+        while n % divisor == 0:
+            factors.append(divisor)
+            n //= divisor
+        divisor += 1
+    return factors
+
+def prime_factors_recursive(n, divisor=2):
+    if n <= 1:
+        return []
+    if n % divisor == 0:
+        return [divisor] + prime_factors_recursive(n // divisor, divisor)
+    else:
+        return prime_factors_recursive(n, divisor + 1)
+
+# Output for 60: [2, 2, 3, 5]
+```
+
+```c
+// C
+#include <stdio.h>
+
+// Iterative approach
+void prime_factors_iterative(int n) {
+    for (int divisor = 2; n > 1; divisor++) {
+        while (n % divisor == 0) {
+            printf("%d ", divisor);
+            n /= divisor;
+        }
+    }
+    printf("\n");
+}
+
+// Recursive approach
+void prime_factors_recursive(int n, int divisor) {
+    if (n <= 1) {
+        return;
+    }
+    if (n % divisor == 0) {
+        printf("%d ", divisor);
+        prime_factors_recursive(n / divisor, divisor);
+    } else {
+        prime_factors_recursive(n, divisor + 1);
+    }
+}
+
+int main() {
+    int n = 60;
+    printf("Iterative Factors: ");
+    prime_factors_iterative(n);
+    
+    printf("Recursive Factors: ");
+    prime_factors_recursive(n, 2);
+    printf("\n");
+    return 0;
+}
+```
+
+> Explanation: The iterative version uses nested loops to exhaust each prime divisor. The recursive version passes the current quotient and the next potential divisor through the call stack until the number is fully factored.
+> 
+
+---
+
+## Complexity Analysis
+
+| **Method** | **Time Complexity** | **Space Complexity** |
+| --- | --- | --- |
+| **GCD (Iterative)** | $O(\log(\min(a, b)))$ | $O(1)$ |
+| **GCD (Recursive)** | $O(\log(\min(a, b)))$ | $O(\log(\min(a, b)))$ |
+| **Factors (Iterative)** | $O(\sqrt{n})$ | $O(\text{number of factors})$ |
+| **Factors (Recursive)** | $O(\sqrt{n})$ | $O(\sqrt{n})$ (Stack Depth) |
+
+---
+
+<aside>
+
+# References
+
+</aside>
+
+[]()
+
+---
