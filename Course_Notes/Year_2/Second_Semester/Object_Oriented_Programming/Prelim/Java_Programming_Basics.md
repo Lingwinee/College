@@ -1,217 +1,162 @@
-<aside>
+# Java Programming Basics
 
-# Summary
+## 📋 Summary
+* **Core Concept:** Java is an object-oriented programming language where programs are structured as classes with a main method as the entry point. The language uses strict naming conventions, type-safe variables, and a comprehensive set of operators for computation and logic.
 
-</aside>
+> **Takeaways:** Java programs must match filenames to class names, use the `.java` extension, and follow specific syntax rules for identifiers, data types, and operators. The language provides primitive types for efficient data storage and supports various operators for arithmetic, comparison, and logical operations.
 
-This document outlines the foundational elements of the Java programming language. It establishes the basic structure of a Java program, including file naming conventions and the `main` method. It details syntax for comments, output statements, and the rules for defining identifiers using specific keywords. The guide categorizes primitive data types (such as integers and Booleans) and literals. Finally, it explains how to declare variables and utilize various operators—mathematical, relational, logical, and conditional—to perform computations and control program flow.
+## 📖 Definition
 
----
+* **Java Program:** A set of instructions saved with the `.java` extension, where the filename must match the public class name defined within it.
+* **Identifiers:** Case-sensitive tokens representing names of variables, methods, and classes. Must begin with a letter, underscore (`_`), or dollar sign (`$`).
+* **Variables:** Named data storage locations characterized by a data type and identifier, used to store object state.
+* **Literals:** Constant values that remain unchanged during program execution (e.g., `12`, `3.1416`, `'a'`, `"Hello"`).
+* **Requirements:**
+    * File extension must be `.java`
+    * Filename must match the public class name
+    * Must contain a `main` method for standalone execution
 
-<aside>
+## 📊 Primitive Data Types
 
-# Definition
+| Type | Size | Range/Values | Purpose |
+| :--- | :--- | :--- | :--- |
+| `boolean` | 1 bit | `true` or `false` | Logical values |
+| `char` | 16 bits | Unicode characters | Single characters |
+| `byte` | 8 bits | -128 to 127 | Small integers |
+| `short` | 16 bits | -32,768 to 32,767 | Short integers |
+| `int` | 32 bits | ±2.1 billion | Standard integers |
+| `long` | 64 bits | ±9.2 quintillion | Large integers |
+| `float` | 32 bits | ~7 decimal digits | Decimal numbers |
+| `double` | 64 bits | ~15 decimal digits | Precise decimals |
 
-</aside>
+* **Integer Types:** `byte`, `short`, `int`, `long` store whole numbers with varying ranges.
+* **Floating-Point Types:** `float`, `double` store decimal values with different precision levels.
+* **Other Types:** `boolean` for logic, `char` for single characters.
 
-- **Java Program:** A set of instructions ending with the `.java` extension, where the filename matches the class name.
-- **Identifiers:** Tokens representing names of variables, methods, and classes. They are case-sensitive and must begin with a letter, underscore (`_`), or dollar sign (`$`).
-- **Variables:** Data items used to store the state of objects, characterized by a name and a data type.
-- **Literals:** Constant tokens that do not change (e.g., `12`, `3.1416`, `'a'`, `"Hello"`).
+## ❓ Why We Use Java
 
----
+* **Platform Independence:** Write once, run anywhere through Java Virtual Machine (JVM).
+* **Type Safety:** Strict data typing prevents runtime errors and improves code reliability.
+* **Object-Oriented Design:** Encourages modular, reusable, and maintainable code structure.
+* **Strong Standard Library:** Comprehensive built-in classes and methods reduce development time.
 
-<aside>
+## ⚙️ How It Works
 
-## **1. Program Structure**
+1. **Step 1:** Write code in a `.java` file with a class definition matching the filename.
+2. **Step 2:** Define the entry point using the `main` method signature:
+   ```java
+   public static void main(String[] args)
+   ```
+3. **Step 3:** Declare variables with specific data types and assign values using literals or expressions.
+4. **Step 4:** Use operators to perform computations, comparisons, and logical operations.
+5. **Step 5:** Compile the program to bytecode, then execute on the JVM.
 
-</aside>
+## 💻 Program Structure
 
-- **File Extension:** A Java program must end with the `.java` extension.
-- **Filename:** The filename must match the name of the class defined within it.
-- **Main Method:** The entry point for a standard Java program.
-    
-    ```java
+### Basic Program Template
+```java
+// Single-line comment
+/* Multi-line comment */
+/** Javadoc comment for documentation */
+
+public class MyProgram {
     public static void main(String[] args) {
-       // code here
+        // Variable declaration and initialization
+        int age = 25;
+        double price = 19.99;
+        char grade = 'A';
+        boolean isActive = true;
+        String message = "Hello, Java!";
+        
+        // Output statements
+        System.out.print("Age: ");
+        System.out.println(age);
     }
-    ```
-    
-
----
-
-<aside>
-
-## **2. Comments**
-
-</aside>
-
-Comments are ignored by the compiler and are used to document code.
-
-- **Single line:** Uses `//`.
-- **Multi-line:** Enclosed between `/*` and `*/`.
-- **Javadoc:** Enclosed between `/**` and `/`. These are special comments used to generate HTML documentation.
-
----
-
-<aside>
-
-## **3. Output Statements**
-
-</aside>
-
-Methods used to display text on the screen.
-
-- `System.out.print()`: Prints text without moving to a new line.
-- `System.out.println()`: Prints text and moves the cursor to the next line.
-
----
-
-<aside>
-
-## **4. Identifiers**
-
-</aside>
-
-Identifiers are names given to variables, methods, and classes.
-
-- **Case Sensitivity:** Java identifiers are case-sensitive.
-- **Naming Rules:**
-    - Must begin with a letter, underscore (`_`), or dollar sign (`$`).
-    - Subsequent characters can include numbers 0-9.
-    - **Restrictions:** Identifiers cannot use reserved Java keywords (e.g., `class`, `public`, `void`, `int`).
-
----
-
-<aside>
-
-## **5. Literals**
-
-</aside>
-
-Literals are constant values that do not change.
-
-- **Integer:** Whole numbers (e.g., `12`, `5000`).
-- **Floating-point:** Decimals (e.g., `3.1416`, `5.8347e2`).
-- **Boolean:** Logical values (`true` or `false`).
-- **Character:** Single characters enclosed in quotes (e.g., `'a'`).
-- **String:** Text enclosed in double quotes (e.g., `"Hello World"`).
-
----
-
-<aside>
-
-## **6. Primitive Data Types**
-
-</aside>
-
-Java defines specific types for storing data, each with a set size.
-
-- `boolean`: Logical values.
-- `char`: Textual characters.
-- `byte`: 8 bits.
-- `short`: 16 bits.
-- `int`: 32 bits.
-- `long`: 64 bits.
-- `float`: 32 bits.
-- `double`: 64 bits.
-
----
-
-<aside>
-
-## **7. Variables**
-
-</aside>
-
-A variable is an item of data used to store the state of objects.
-
-- **Components:** A variable has a name and a data type.
-- **Syntax:**`<data type> <name> [= initial value];`
-    
-    *(Values in brackets `[]` are optional)*.
-    
-
----
-
-<aside>
-
-## **8. Operators**
-
-</aside>
-
-<aside>
-
-### **Mathematical Operators**
-
-Used for basic arithmetic. Precedence: `* / %` is higher than `+ -`.
-
-| Operator  | Operation  |
-| --- | --- |
-| `+`  | Addition  |
-| `-`  | Subtraction  |
-| `*`  | Multiplication  |
-| `/`  | Division  |
-| `%`  | Modulo (Remainder) |
-</aside>
-
-<aside>
-
-### **Shorthand Operators**
-
-Combine an operation with assignment.
-
-- `+=` (e.g., `number += 50` is `number = number + 50`).
-- `-=`, `+=`, `/=`, `%=`.
-</aside>
-
-<aside>
-
-### **Increment/Decrement**
-
-- `++`: Increment by 1.
-- `--`: Decrement by 1.
-</aside>
-
-<aside>
-
-### **Relational Operators**
-
-Used for comparison.
-
-- `<` (Less than), `<=` (Less than or equal).
-- `>` (Greater than), `>=` (Greater than or equal).
-- `==` (Equal), `!=` (Not equal).
-</aside>
-
-<aside>
-
-### **Logical Operators**
-
-Used to combine Boolean expressions.
-
-- `&&`: And.
-- `!`: Not.
-- `||`: Or.
-</aside>
-
-<aside>
-
-### **Conditional & String Operators**
-
-- **Conditional Expression:** `<condition> ? <expr1> : <expr2>`.
-- **String Concatenation:** Uses `+` to join strings.
-    - *Example:* `"There are " + days + " days..."`.
-</aside>
-
----
-
-<aside>
-
-# References
-
-</aside>
-
-[java programming basics.pdf](https://drive.google.com/drive/folders/1t3FETkgxUZmwEY09BQUszx0ORuEs4Jvn?usp=sharing)
-
----
+}
+```
+
+### Variable Declaration Syntax
+```java
+// Format: <data_type> <identifier> [= initial_value];
+int count;              // Declaration only
+int total = 0;          // Declaration with initialization
+double rate = 5.5;
+String name = "Student";
+```
+
+### Operators in Action
+```java
+// Mathematical operators
+int a = 10, b = 3;
+int sum = a + b;        // 13
+int difference = a - b; // 7
+int product = a * b;    // 30
+int quotient = a / b;   // 3
+int remainder = a % b;  // 1
+
+// Shorthand operators
+int number = 10;
+number += 5;  // number = number + 5; Result: 15
+number -= 3;  // number = number - 3; Result: 12
+number *= 2;  // number = number * 2; Result: 24
+
+// Increment/Decrement
+int x = 5;
+x++;  // x becomes 6
+x--;  // x becomes 5
+
+// Relational operators
+boolean result1 = (10 > 5);   // true
+boolean result2 = (10 == 5);  // false
+boolean result3 = (10 != 5);  // true
+
+// Logical operators
+boolean condition1 = true;
+boolean condition2 = false;
+boolean and = condition1 && condition2;  // false
+boolean or = condition1 || condition2;   // true
+boolean not = !condition1;               // false
+
+// Conditional operator (ternary)
+int max = (a > b) ? a : b;  // Returns a if a > b, otherwise b
+
+// String concatenation
+int days = 365;
+String output = "There are " + days + " days in a year.";
+System.out.println(output);
+```
+
+### Operator Precedence
+```java
+// Precedence matters in complex expressions
+int result = 10 + 5 * 2;  // Result: 20 (multiplication first)
+int result2 = (10 + 5) * 2;  // Result: 30 (parentheses first)
+
+// Order: * / % before + -
+// Use parentheses to clarify intended order
+```
+
+## 📝 Identifier Rules
+
+* **Valid Identifiers:**
+    * `myVariable`, `_temp`, `$price`, `user1`, `calculateSum`
+* **Invalid Identifiers:**
+    * `2ndValue` (starts with digit)
+    * `my-variable` (contains hyphen)
+    * `class` (reserved keyword)
+    * `total value` (contains space)
+* **Best Practice:** Use descriptive names following camelCase convention for variables and methods.
+
+## 🔤 Literal Types
+
+| Literal Type | Examples | Description |
+| :--- | :--- | :--- |
+| Integer | `42`, `0`, `-17` | Whole numbers |
+| Floating-point | `3.14`, `2.5e3` | Decimal values |
+| Boolean | `true`, `false` | Logical constants |
+| Character | `'a'`, `'Z'`, `'5'` | Single characters |
+| String | `"Hello"`, `"123"` | Text sequences |
+
+## 📚 References
+
+* [java programming basics.pdf](https://drive.google.com/drive/folders/1t3FETkgxUZmwEY09BQUszx0ORuEs4Jvn?usp=sharing) — Original course material

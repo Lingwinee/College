@@ -1,168 +1,117 @@
-<aside>
+# Java Arrays
 
-# Summary
+## 📋 Summary
+* **Core Concept:** A Java array is a runtime-allocated object that stores a fixed number of variables of the same type (primitives or object references) in contiguous memory on the heap.
 
-</aside>
-
-A Java array is an object created at runtime to store a fixed number of variables of the same type, which can be primitives or object references. Arrays are dynamically allocated on the heap, while their reference variables reside on the stack. A multi-dimensional array functions as an "array of arrays," organizing data in a tabular, row-major format. Key concepts include declaration, instantiation, initialization, and the use of the `.length` property to retrieve the array's size.
-
----
-
-<aside>
-
-# Definition
-
-</aside>
-
-A **Java array** is an object that stores multiple variables of the same type.
-
-- It functions as a container for both primitive types and object references.
-- It is distinct because it is dynamic and created during runtime.
-
-**Key Features:**
-
-- **Object Status:** Arrays are objects in Java.
-- **Storage:** They can hold references to other objects.
-- **Memory:** Created on the heap.
-- **Size:** The length is fixed once created.
+> **Takeaways:** Arrays are objects created dynamically during program execution. Multi-dimensional arrays are implemented as "arrays of arrays" with row-major organization. Key operations include declaration (creating stack references), instantiation (heap allocation via `new`), initialization (assigning values), and size retrieval via the `.length` property.
 
 ---
 
-<aside>
+## 📖 Definition
 
-## Why do we Use it
+* **Array:** An object that functions as a container for multiple variables of identical type.
+* **Array Reference:** A variable stored on the stack that points to the array object on the heap.
+* **Multi-dimensional Array:** An array whose elements are themselves array references, enabling tabular data organization.
 
-</aside>
-
-- To store multiple variables of the same type within a single object reference.
-- To organize data in tabular forms (matrices) using multi-dimensional arrays.
-
----
-
-<aside>
-
-## How it Works
-
-</aside>
-
-**Memory Allocation (Stack vs. Heap):**
-
-- **Declaration:** Declaring `int[] firstArray;` creates a reference variable on the **stack** but does not create the array object yet.
-- **Creation:** Executing `new int[5]` allocates memory for the array elements on the **heap**.
-- **Reference:** The variable on the stack (`firstArray`) points to the array object on the heap.
-
-**Multi-dimensional Arrays:**
-
-- Conceptually, a 2D array (e.g., `new int[3][4]`) acts like a matrix with 3 rows and 4 columns.
-- In reality, it is an **array of arrays**: the main array holds references to other array objects.
+**Requirements:**
+* All elements must share the same data type.
+* Array size must be specified at creation and remains fixed.
+* Memory allocation occurs on the heap via the `new` keyword.
 
 ---
 
-<aside>
+## 📊 Memory Model
 
-## Step-by-step Implementation
+| Component | Location | Description |
+| :--- | :--- | :--- |
+| Array Reference | Stack | Variable holding memory address of array object |
+| Array Object | Heap | Actual data storage allocated at runtime |
+| Array Elements | Heap | Individual values or references within the array |
 
-</aside>
-
-<aside>
-
-### **1. Declaring an Array**
-
-Define the variable type and name. This creates a reference on the stack.
-
-- Syntax A: `int[] firstArray;`
-- Syntax B: `int firstArray[];`
-</aside>
-
-<aside>
-
-### **2. Creating an Array**
-
-Use the `new` keyword to allocate memory on the heap.
-
-- Example: `firstArray = new int[5];`
-- *Note:* Elements are initialized to 0 by default upon creation.
-</aside>
-
-<aside>
-
-### **3. Initializing an Array**
-
-You can declare, create, and assign values simultaneously.
-
-- Example: `int[] secondArray = {1, 2, 3, 4, 5};`.
-- This assigns specific values to indices (e.g., 1 at index 0).
-</aside>
-
-<aside>
-
-### **4. Accessing Size**
-
-Use the `.length` property to return the size of a single-dimensional array.
-
-</aside>
+* **Declaration:** `int[] firstArray;` creates a stack reference without allocating heap memory.
+* **Instantiation:** `new int[5]` allocates heap memory for 5 integers (initialized to 0).
+* **Reference Assignment:** The stack variable points to the heap-allocated array object.
 
 ---
 
-<aside>
+## ❓ Why we use it
 
-## Program Example
+* **Batch Storage:** Manage collections of related variables through a single reference.
+* **Structured Data:** Organize information in matrices and tables using multi-dimensional arrays.
+* **Efficient Access:** Retrieve elements in constant time using index notation.
 
-</aside>
+---
 
-<aside>
+## ⚙️ How it works
 
-### **Single-Dimensional Array**
+1. **Declaration Phase:** Define array type and reference variable name (stack allocation only).
+2. **Creation Phase:** Use `new` keyword to allocate fixed-size memory on the heap.
+3. **Initialization Phase:** Assign values to array elements (default initialization or explicit values).
+4. **Access Phase:** Use `.length` property to retrieve size; use index notation `[i]` to access elements.
 
+**Multi-dimensional Implementation:**
+* A 2D array `int[][] matrix = new int[3][4]` creates one array of 3 references.
+* Each reference points to a separate array of 4 integers.
+* Total heap allocations: 4 array objects (1 parent + 3 child arrays).
+
+---
+
+## 💻 Usage / Program Example
+
+### Single-Dimensional Array
 ```java
 // Declaration and Creation
-// Memory is allocated on the heap; elements default to 0
-int[] firstArray = new int[5]; 
+// Allocates heap memory for 5 integers (default value: 0)
+int[] firstArray = new int[5];
 
 // Initialization with specific values
-// Creates an array of size 5 with values 1 through 5
+// Creates array of size 5 with values 1 through 5
 int[] secondArray = {1, 2, 3, 4, 5};
 
-// Getting size
-// Uses the .length property to print the size (5)
+// Accessing size
+// Prints "Size = 5" using the .length property
 System.out.println("Size = " + secondArray.length);
+
+// Element access
+firstArray[0] = 10; // Assigns 10 to first element
+int value = secondArray[2]; // Retrieves 3 from index 2
 ```
 
-</aside>
-
-<aside>
-
-### **Multi-Dimensional Array**
-
+### Multi-Dimensional Array
 ```java
 // Creating a 2D array (3 rows, 4 columns)
-// Conceptually a matrix, actually an array of arrays
+// Conceptually a matrix; actually an array of arrays
 int[][] twoDimArray = new int[3][4];
+
+// Accessing elements
+twoDimArray[1][2] = 42; // Sets row 1, column 2 to 42
 
 // Creating a 3D array
 int[][][] threeDimArray = new int[2][3][4];
+
+// Getting dimensions
+int rows = twoDimArray.length;       // Returns 3
+int cols = twoDimArray[0].length;    // Returns 4
 ```
 
-</aside>
-
-<aside>
-
-### **Visualizing 2D Arrays**
-
+### Visualizing 2D Array Structure
 For `A = new int[3][4]`:
 
-- **Conceptual View:** A matrix.
-- **Actual View:** `A` holds a reference to an array of 3 items. Each of those 3 items is a reference to an array of 4 integers.
-</aside>
+**Conceptual View (Matrix):**
+```
+[0][0]  [0][1]  [0][2]  [0][3]
+[1][0]  [1][1]  [1][2]  [1][3]
+[2][0]  [2][1]  [2][2]  [2][3]
+```
+
+**Actual Memory Structure:**
+* `A` → Reference to array of 3 elements
+* `A[0]` → Reference to array of 4 integers
+* `A[1]` → Reference to array of 4 integers
+* `A[2]` → Reference to array of 4 integers
 
 ---
-
-<aside>
 
 ## References
 
-</aside>
-
-[java arrays.pdf](https://drive.google.com/file/d/1_BN29NgRNVjk9dNQDhEwznnIDtJ88RNW/view?usp=sharing)
-
----
+* [java arrays.pdf](https://drive.google.com/file/d/1_BN29NgRNVjk9dNQDhEwznnIDtJ88RNW/view?usp=sharing) — Original course material on Java array implementation.
