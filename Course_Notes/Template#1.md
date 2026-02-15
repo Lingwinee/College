@@ -41,7 +41,7 @@
 4. **Step 4:** Simplify using the order of growth.
 
 
-## 💻 Usage / Program Example
+## 💻 Usage / Example
 ```python
 # Example: Finding a value in an array (Linear Search)
 def find_element(arr, target):

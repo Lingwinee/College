@@ -1,6 +1,6 @@
 # College
-```
 
+```
 ¦   MAIN
 ¦   
 +---Artificial_Intelligence
@@ -70,3 +70,5 @@
         ¦               
         +---Summer
 ```
+
+

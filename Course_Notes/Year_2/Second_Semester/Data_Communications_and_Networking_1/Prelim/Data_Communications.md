@@ -240,9 +240,6 @@ print(f"Pixel: {pixel_data}")
 
 ## 💡 Additional Notes
 
-### For CCNA Preparation
-This lecture covers fundamental concepts that appear in CCNA certification exams. Understanding simplex, half-duplex, and full-duplex modes is essential for network configuration and troubleshooting.
-
 ### Practical Applications
 * **Cybersecurity Context:** Understanding data flow modes is important for analyzing network traffic patterns and identifying potential security vulnerabilities.
 * **AR/VR Applications:** Full-duplex communication is critical for real-time interactive AR/VR systems where both user input and system feedback must occur simultaneously with minimal latency and jitter.

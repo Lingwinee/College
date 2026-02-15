@@ -860,31 +860,6 @@ public ClassName setProperty(Type value) {
 * Implement proper authentication in methods that modify sensitive data
 * Consider using immutable objects for security-critical data
 
-**Example: Secure Password Handling**
-```java
-public class User {
-    private String username;
-    private char[] password;  // Use char[] instead of String for passwords
-    
-    public void setPassword(char[] newPassword) {
-        // Validate password complexity
-        if (isValidPassword(newPassword)) {
-            // Clear old password from memory
-            if (password != null) {
-                Arrays.fill(password, '0');
-            }
-            // Store new password
-            this.password = Arrays.copyOf(newPassword, newPassword.length);
-        }
-    }
-    
-    private boolean isValidPassword(char[] pwd) {
-        // Password validation logic
-        return pwd != null && pwd.length >= 8;
-    }
-}
-```
-
 ### For AR/VR Applications
 
 **Performance Considerations:**
@@ -892,47 +867,6 @@ public class User {
 * Use object pooling patterns for frequently created/destroyed objects
 * Keep instance variables lightweight for better memory performance
 * Use static variables sparingly to avoid memory overhead
-
-**Example: 3D Object Class**
-```java
-public class GameObject3D {
-    // Position in 3D space
-    private float x, y, z;
-    // Rotation (Euler angles)
-    private float pitch, yaw, roll;
-    // Scale
-    private float scaleX, scaleY, scaleZ;
-    
-    // Static pool for object reuse (performance optimization)
-    private static Queue<GameObject3D> objectPool = new LinkedList<>();
-    
-    // Private constructor for object pooling
-    private GameObject3D() {
-        reset();
-    }
-    
-    // Get object from pool or create new one
-    public static GameObject3D getInstance() {
-        if (objectPool.isEmpty()) {
-            return new GameObject3D();
-        } else {
-            return objectPool.poll();
-        }
-    }
-    
-    // Return object to pool when done
-    public void recycle() {
-        reset();
-        objectPool.offer(this);
-    }
-    
-    private void reset() {
-        x = y = z = 0.0f;
-        pitch = yaw = roll = 0.0f;
-        scaleX = scaleY = scaleZ = 1.0f;
-    }
-}
-```
 
 ### Study Tips
 

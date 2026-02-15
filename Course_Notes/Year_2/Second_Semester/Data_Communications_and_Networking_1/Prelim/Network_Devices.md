@@ -515,14 +515,6 @@ A device's role is determined by context:
 
 ## 💡 Additional Notes
 
-### For CCNA Preparation
-
-This lecture covers foundational network device knowledge essential for CCNA certification:
-- Understanding device roles and functions
-- Recognizing appropriate device selection for different scenarios
-- Identifying network topology components
-- Basic security concepts with firewalls
-
 ### Cybersecurity Context
 
 **Switches:**
@@ -541,20 +533,6 @@ This lecture covers foundational network device knowledge essential for CCNA cer
 - NGFWs provide advanced threat protection
 - Both network and host-based firewalls are necessary for defense in depth
 
-### AR/VR Applications
-
-**Network Requirements for AR/VR:**
-- **Low Latency:** Requires optimized routing with routers
-- **High Bandwidth:** Switches must support high-speed connections (1 Gbps, 10 Gbps)
-- **Quality of Service (QoS):** Routers must prioritize AR/VR traffic
-- **Security:** Firewalls must protect AR/VR applications without adding excessive latency
-
-**Example AR/VR Network:**
-```
-VR Headset (Client) → High-Speed Switch → Low-Latency Router → Internet → Cloud Render Server
-                                              ↓
-                                         Firewall (with QoS)
-```
 
 ### Study Tips
 
