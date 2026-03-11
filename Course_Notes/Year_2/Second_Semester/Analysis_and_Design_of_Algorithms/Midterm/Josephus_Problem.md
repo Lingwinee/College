@@ -90,7 +90,7 @@ int josephus_iterative(int n, int k) {
     int pos = 0;                    // Survivor position for n=1
     for (int i = 2; i <= n; i++) {
         pos = (pos + k) % i;        // Basic Operation: shift and wrap
-    }
+    }   
     return pos;                     // 0-indexed result
 }
 
